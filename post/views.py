@@ -1,7 +1,7 @@
 from django.urls import reverse
 from django.views import generic
 
-from post.models import Post
+from post.models import Post, Tag
 
 
 class PostListView(generic.ListView):
@@ -45,3 +45,30 @@ class PostDeleteView(generic.DeleteView):
 
     def get_success_url(self):
         return reverse("post:post-list")
+
+
+class TagListView(generic.ListView):
+    model = Tag
+
+
+class TagCreateView(generic.CreateView):
+    model = Tag
+    fields = ("name",)
+
+    def get_success_url(self):
+        return reverse("post:tag-list")
+
+
+class TagUpdateView(generic.UpdateView):
+    model = Tag
+    fields = ("name",)
+
+    def get_success_url(self):
+        return reverse("post:tag-list")
+
+
+class TagDeleteView(generic.DeleteView):
+    model = Tag
+
+    def get_success_url(self):
+        return reverse("post:tag-list")
