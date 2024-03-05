@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <a href="{% url 'post:post-delete' pk=post.id %}" class="btn btn-danger link-to-page">
+    Delete
+  </a>
+
+  <a href="{% url 'post:post-update' pk=post.id %}" class="btn btn-secondary link-to-page">
+    Update
+  </a>
+  <h1>{{ post.title }}</h1>
+  <h6>{{ post.author.username }} at {{ post.created_at }}</h6>
+  <p>{{ post.content }}</p>
+  <h5>Comment{{ post.comments_counter|pluralize }}: {{ post.comments_counter }}</h5>
+  <ul class="blog-list">
+    {% for comment in post.comments.all %}
+      <li class="blog-item">
+        {{ comment.user.username }} at {{ comment.created_time }}
+        <br>
+        {{ comment.content }}
+      </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}

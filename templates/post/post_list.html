@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>IT Blog</h1>
+  <a style="float: right" href="{% url 'post:post-create' %}" class="btn btn-primary link-to-page">
+    Create
+  </a>
+  <ul class="blog-list">
+    {% for post in post_list %}
+      <li class="blog-item">
+        <h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
+        <p>Author: {{ post.author.username }}</p>
+        <p>Created at: {{ post.created_at }}</p>
+        <p>Number of Comments: {{ post.comments_counter }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+
+
+{% endblock %}
