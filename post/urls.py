@@ -5,7 +5,11 @@ from post.views import (
     PostDetailView,
     PostUpdateView,
     PostCreateView,
-    PostDeleteView
+    PostDeleteView,
+    TagListView,
+    TagCreateView,
+    TagUpdateView,
+    TagDeleteView,
 )
 
 urlpatterns = [
@@ -14,6 +18,10 @@ urlpatterns = [
     path("posts/<int:pk>/", PostDetailView.as_view(), name="post-detail"),
     path("posts/<int:pk>/update/", PostUpdateView.as_view(), name="post-update"),
     path("posts/<int:pk>/delete/", PostDeleteView.as_view(), name="post-delete"),
+    path("tags/", TagListView.as_view(), name="tag-list"),
+    path("tags/create/", TagCreateView.as_view(), name="tag-create"),
+    path("tags/<int:pk>/update/", TagUpdateView.as_view(), name="tag-update"),
+    path("tags/<int:pk>/delete/", TagDeleteView.as_view(), name="tag-delete"),
 ]
 
 app_name = "post"
