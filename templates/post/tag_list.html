@@ -1,0 +1,22 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Tags</h1>
+  <a style="float: right" href="{% url 'post:tag-create' %}" class="btn btn-primary link-to-page">
+    Create
+  </a>
+  <ul class="blog-list">
+    {% for tag in tag_list %}
+      <li class="blog-item">
+        <p>{{ tag.name }}</p>
+        <a href="{% url 'post:tag-update' pk=tag.id %}" class="btn btn-secondary link-to-page">
+          Update
+        </a>
+        <a href="{% url 'post:tag-delete' pk=tag.id %}" class="btn btn-danger link-to-page">
+          Delete
+        </a>
+      </li>
+    {% endfor %}
+  </ul>
+
+{% endblock %}
