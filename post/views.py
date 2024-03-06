@@ -15,7 +15,10 @@ class PostListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         queryset = super(PostListView, self).get_queryset()
-        queryset = queryset.select_related("author").prefetch_related("comments")
+        queryset = (queryset
+                    .select_related("author")
+                    .prefetch_related("comments")
+                    )
         return queryset
 
 
@@ -37,7 +40,10 @@ class PostDetailView(LoginRequiredMixin, FormMixin, generic.DetailView):
 
     def get_queryset(self):
         queryset = super(PostDetailView, self).get_queryset()
-        queryset = queryset.select_related("author").prefetch_related("comments__author")
+        queryset = (queryset
+                    .select_related("author")
+                    .prefetch_related("comments__author")
+                    )
         return queryset
 
     def get_context_data(self, **kwargs):
