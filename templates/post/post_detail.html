@@ -15,11 +15,21 @@
   <ul class="blog-list">
     {% for comment in post.comments.all %}
       <li class="blog-item">
-        {{ comment.user.username }} at {{ comment.created_time }}
+        {{ comment.author.username }} at {{ comment.created_at }}
         <br>
         {{ comment.content }}
+        {% if comment.author.id == request.user.id %}
+          <a href="{% url 'post:comment-delete' pk=comment.id %}" class="btn btn-danger link-to-page">
+            Delete
+          </a>
+        {% endif %}
       </li>
     {% endfor %}
   </ul>
+  <form action="" method="post" novalidate>
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Submit" class="btn btn-primary">
+  </form>
 
 {% endblock %}
