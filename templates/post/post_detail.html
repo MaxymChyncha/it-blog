@@ -13,7 +13,7 @@
   <p>{{ post.content }}</p>
   <h5>Comment{{ post.comments_counter|pluralize }}: {{ post.comments_counter }}</h5>
   <ul class="blog-list">
-    {% for comment in post.comments.all %}
+    {% for comment in comments %}
       <li class="blog-item">
         {{ comment.author.username }} at {{ comment.created_at }}
         <br>

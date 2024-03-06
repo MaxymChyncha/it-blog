@@ -2,6 +2,7 @@ from django.urls import reverse
 from django.views import generic
 from django.views.generic.edit import FormMixin
 
+from config.utils.paginators import paginate_queryset
 from post.forms import CommentCreateForm
 from post.models import Post, Tag, Comment
 
@@ -19,7 +20,11 @@ class PostListView(generic.ListView):
 
 class PostCreateView(generic.CreateView):
     model = Post
-    fields = "__all__"
+    fields = ("tag", "title", "content",)
+
+    def form_valid(self, form):
+        form.instance.author = self.request.user
+        return super(PostCreateView, self).form_valid(form)
 
     def get_success_url(self):
         return self.object.get_absolute_url()
@@ -36,6 +41,13 @@ class PostDetailView(FormMixin, generic.DetailView):
 
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
+        comments = self.object.comments.all()
+        paginated_comments = paginate_queryset(self.request, comments, 5)
+        context["comments"] = paginated_comments
+        context["paginator"] = paginated_comments.paginator
+        context["page_obj"] = paginated_comments
+        context["is_paginated"] = paginated_comments.has_other_pages()
+
         context["form"] = CommentCreateForm(
             initial={"post": self.object, "author": self.request.user}
         )
@@ -88,6 +100,17 @@ class TagCreateView(generic.CreateView):
 
 class TagDetailView(generic.DetailView):
     model = Tag
+
+    def get_context_data(self, **kwargs):
+        context = super(TagDetailView, self).get_context_data(**kwargs)
+        posts = self.object.posts.all()
+        paginated_posts = paginate_queryset(self.request, posts, 5)
+        context["posts"] = paginated_posts
+        context["paginator"] = paginated_posts.paginator
+        context["page_obj"] = paginated_posts
+        context["is_paginated"] = paginated_posts.has_other_pages()
+
+        return context
 
 
 class TagUpdateView(generic.UpdateView):
