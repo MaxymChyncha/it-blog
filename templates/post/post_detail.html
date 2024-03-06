@@ -19,6 +19,9 @@
         <br>
         {{ comment.content }}
         {% if comment.author.id == request.user.id %}
+          <a href="{% url 'post:comment-update' pk=comment.id %}" class="btn btn-secondary link-to-page">
+            Update
+          </a>
           <a href="{% url 'post:comment-delete' pk=comment.id %}" class="btn btn-danger link-to-page">
             Delete
           </a>

@@ -12,6 +12,7 @@ from post.views import (
     TagDeleteView,
     TagDetailView,
     CommentDeleteView,
+    CommentUpdateView,
 )
 
 urlpatterns = [
@@ -64,6 +65,11 @@ urlpatterns = [
         "tags/<int:pk>/delete/",
         TagDeleteView.as_view(),
         name="tag-delete"
+    ),
+    path(
+        "comments/<int:pk>/update/",
+        CommentUpdateView.as_view(),
+        name="comment-update"
     ),
     path(
         "comments/<int:pk>/delete/",
