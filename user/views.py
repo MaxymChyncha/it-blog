@@ -1,4 +1,5 @@
 from django.contrib.auth import get_user_model
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from django.views import generic
 
@@ -6,12 +7,12 @@ from config.utils.paginators import paginate_queryset
 from user.forms import UserCreateForm, UserUpdateForm
 
 
-class UserListView(generic.ListView):
+class UserListView(LoginRequiredMixin, generic.ListView):
     model = get_user_model()
     paginate_by = 5
 
 
-class UserCreateView(generic.CreateView):
+class UserCreateView(LoginRequiredMixin, generic.CreateView):
     model = get_user_model()
     form_class = UserCreateForm
 
@@ -19,7 +20,7 @@ class UserCreateView(generic.CreateView):
         return self.object.get_absolute_url()
 
 
-class UserDetailView(generic.DetailView):
+class UserDetailView(LoginRequiredMixin, generic.DetailView):
     model = get_user_model()
 
     def get_context_data(self, **kwargs):
@@ -33,7 +34,7 @@ class UserDetailView(generic.DetailView):
         return context
 
 
-class UserUpdateView(generic.UpdateView):
+class UserUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = get_user_model()
     form_class = UserUpdateForm
 
@@ -41,7 +42,7 @@ class UserUpdateView(generic.UpdateView):
         return self.object.get_absolute_url()
 
 
-class UserDeleteView(generic.DeleteView):
+class UserDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = get_user_model()
 
     def get_success_url(self):
