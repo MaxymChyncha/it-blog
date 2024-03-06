@@ -4,12 +4,29 @@ from django.urls import reverse
 from django.views import generic
 
 from config.utils.paginators import paginate_context
-from user.forms import UserCreateForm, UserUpdateForm
+from user.forms import UserCreateForm, UserUpdateForm, UserSearchForm
 
 
 class UserListView(LoginRequiredMixin, generic.ListView):
     model = get_user_model()
     paginate_by = 5
+
+    def get_queryset(self):
+        queryset = super(UserListView, self).get_queryset()
+        form = UserSearchForm(self.request.GET)
+        if form.is_valid():
+            return queryset.filter(
+                username__icontains=form.cleaned_data["username"]
+            )
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super(UserListView, self).get_context_data(**kwargs)
+        username = self.request.GET.get("username")
+        context["search_form"] = UserSearchForm(
+            initial={"username": username}
+        )
+        return context
 
 
 class UserCreateView(LoginRequiredMixin, generic.CreateView):
