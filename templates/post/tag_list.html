@@ -2,6 +2,10 @@
 
 {% block content %}
   <h1>Tags</h1>
+  <form method="get" action="" class="form-inline">
+    {{ search_form.as_p }}
+    <input type="submit" value="🔎" class="btn btn-secondary">
+  </form>
   <a style="float: right" href="{% url 'post:tag-create' %}" class="btn btn-primary link-to-page">
     Create
   </a>

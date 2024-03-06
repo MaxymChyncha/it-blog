@@ -4,7 +4,7 @@ from django.views import generic
 from django.views.generic.edit import FormMixin
 
 from config.utils.paginators import paginate_context
-from post.forms import CommentCreateForm, CommentUpdateForm
+from post.forms import CommentCreateForm, CommentUpdateForm, PostSearchForm, TagSearchForm
 from post.models import Post, Tag, Comment
 
 
@@ -15,11 +15,25 @@ class PostListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self):
         queryset = super(PostListView, self).get_queryset()
-        queryset = (queryset
-                    .select_related("author")
-                    .prefetch_related("comments")
-                    )
+        queryset = (
+            queryset
+            .select_related("author")
+            .prefetch_related("comments")
+        )
+        form = PostSearchForm(self.request.GET)
+        if form.is_valid():
+            return queryset.filter(
+                title__icontains=form.cleaned_data["title"]
+            )
         return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super(PostListView, self).get_context_data(**kwargs)
+        title = self.request.GET.get("title")
+        context["search_form"] = PostSearchForm(
+            initial={"title": title}
+        )
+        return context
 
 
 class PostCreateView(LoginRequiredMixin, generic.CreateView):
@@ -28,6 +42,7 @@ class PostCreateView(LoginRequiredMixin, generic.CreateView):
 
     def form_valid(self, form):
         form.instance.author = self.request.user
+        form.save()
         return super(PostCreateView, self).form_valid(form)
 
     def get_success_url(self):
@@ -40,10 +55,11 @@ class PostDetailView(LoginRequiredMixin, FormMixin, generic.DetailView):
 
     def get_queryset(self):
         queryset = super(PostDetailView, self).get_queryset()
-        queryset = (queryset
-                    .select_related("author")
-                    .prefetch_related("comments__author")
-                    )
+        queryset = (
+            queryset
+            .select_related("author")
+            .prefetch_related("comments__author")
+        )
         return queryset
 
     def get_context_data(self, **kwargs):
@@ -91,6 +107,23 @@ class PostDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class TagListView(LoginRequiredMixin, generic.ListView):
     model = Tag
+
+    def get_queryset(self):
+        queryset = super(TagListView, self).get_queryset()
+        form = TagSearchForm(self.request.GET)
+        if form.is_valid():
+            return queryset.filter(
+                name__icontains=form.cleaned_data["name"]
+            )
+        return queryset
+
+    def get_context_data(self, **kwargs):
+        context = super(TagListView, self).get_context_data(**kwargs)
+        name = self.request.GET.get("name")
+        context["search_form"] = TagSearchForm(
+            initial={"name": name}
+        )
+        return context
 
 
 class TagCreateView(LoginRequiredMixin, generic.CreateView):
