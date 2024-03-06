@@ -1,4 +1,15 @@
 <ul class="sidebar-nav list-group">
+  {% if user.is_authenticated %}
+    <li class="list-group-item">User: <a href="{{ user.get_absolute_url }}">{{ user.get_username }}</a></li>
+    <li class="list-group-item">
+      <form action="{% url 'user:logout' %}?next={{ request.path }}" method="post">
+        {% csrf_token %}
+        <button type="submit">Logout</button>
+      </form>
+    </li>
+  {% else %}
+    <li class="list-group-item"><a href="{% url 'user:login' %}?next={{ request.path }}">Login</a></li>
+  {% endif %}
   <li class="list-group-item"><a href="{% url 'post:post-list' %}">Home</a></li>
   <li class="list-group-item"><a href="{% url 'post:tag-list' %}">Tags</a></li>
 </ul>
