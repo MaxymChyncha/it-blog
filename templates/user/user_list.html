@@ -1,0 +1,18 @@
+{% extends "base.html" %}
+
+{% block content %}
+  <h1>Users</h1>
+  <a style="float: right" href="{% url 'user:user-create' %}" class="btn btn-primary link-to-page">
+    Create
+  </a>
+  <ul class="blog-list">
+    {% for user in user_list %}
+      <li class="blog-item">
+        <h4><a href="{{ user.get_absolute_url }}">{{ user.username }}</a></h4>
+        <p>Posts written: {{ user.posts_counter }}</p>
+        <p>Comments left: {{ user.comments_counter }}</p>
+      </li>
+    {% endfor %}
+  </ul>
+  
+{% endblock %}
