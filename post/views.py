@@ -3,7 +3,7 @@ from django.urls import reverse
 from django.views import generic
 from django.views.generic.edit import FormMixin
 
-from config.utils.paginators import paginate_queryset
+from config.utils.paginators import paginate_context
 from post.forms import CommentCreateForm, CommentUpdateForm
 from post.models import Post, Tag, Comment
 
@@ -49,11 +49,7 @@ class PostDetailView(LoginRequiredMixin, FormMixin, generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(PostDetailView, self).get_context_data(**kwargs)
         comments = self.object.comments.all()
-        paginated_comments = paginate_queryset(self.request, comments, 5)
-        context["comments"] = paginated_comments
-        context["paginator"] = paginated_comments.paginator
-        context["page_obj"] = paginated_comments
-        context["is_paginated"] = paginated_comments.has_other_pages()
+        context = paginate_context(self.request, comments, context, 5)
 
         context["form"] = CommentCreateForm(
             initial={"post": self.object, "author": self.request.user}
@@ -111,12 +107,7 @@ class TagDetailView(LoginRequiredMixin, generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super(TagDetailView, self).get_context_data(**kwargs)
         posts = self.object.posts.all()
-        paginated_posts = paginate_queryset(self.request, posts, 5)
-        context["posts"] = paginated_posts
-        context["paginator"] = paginated_posts.paginator
-        context["page_obj"] = paginated_posts
-        context["is_paginated"] = paginated_posts.has_other_pages()
-
+        context = paginate_context(self.request, posts, context, 5)
         return context
 
 

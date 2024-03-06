@@ -3,7 +3,7 @@ from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from django.views import generic
 
-from config.utils.paginators import paginate_queryset
+from config.utils.paginators import paginate_context
 from user.forms import UserCreateForm, UserUpdateForm
 
 
@@ -26,11 +26,7 @@ class UserDetailView(LoginRequiredMixin, generic.DetailView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         posts = self.object.posts.all()
-        paginated_posts = paginate_queryset(self.request, posts, 5)
-        context["posts"] = paginated_posts
-        context["paginator"] = paginated_posts.paginator
-        context["page_obj"] = paginated_posts
-        context["is_paginated"] = paginated_posts.has_other_pages()
+        context = paginate_context(self.request, posts, context, 5)
         return context
 
 
