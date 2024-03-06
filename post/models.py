@@ -9,6 +9,9 @@ class Tag(models.Model):
     class Meta:
         ordering = ("name",)
 
+    def get_absolute_url(self) -> str:
+        return reverse("post:tag-detail", kwargs={"pk": self.pk})
+
     def __str__(self) -> str:
         return self.name
 
