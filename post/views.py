@@ -59,6 +59,10 @@ class TagCreateView(generic.CreateView):
         return reverse("post:tag-list")
 
 
+class TagDetailView(generic.DetailView):
+    model = Tag
+
+
 class TagUpdateView(generic.UpdateView):
     model = Tag
     fields = ("name",)
