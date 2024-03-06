@@ -58,5 +58,8 @@ class Comment(models.Model):
     content = models.TextField()
     created_at = models.DateTimeField(auto_now_add=True)
 
+    def get_absolute_url(self) -> str:
+        return reverse("post:post-detail", kwargs={"pk": self.post.pk})
+
     def __str__(self) -> str:
         return f"Content: {self.content[:10]}. Author: {self.author.username}"
