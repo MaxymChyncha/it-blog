@@ -11,6 +11,7 @@ from post.views import (
     TagUpdateView,
     TagDeleteView,
     TagDetailView,
+    CommentDeleteView,
 )
 
 urlpatterns = [
@@ -24,6 +25,7 @@ urlpatterns = [
     path("tags/<int:pk>/", TagDetailView.as_view(), name="tag-detail"),
     path("tags/<int:pk>/update/", TagUpdateView.as_view(), name="tag-update"),
     path("tags/<int:pk>/delete/", TagDeleteView.as_view(), name="tag-delete"),
+    path("comments/<int:pk>/delete/", CommentDeleteView.as_view(), name="comment-delete")
 ]
 
 app_name = "post"
