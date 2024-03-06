@@ -1,3 +1,4 @@
+from django.contrib.auth.mixins import LoginRequiredMixin
 from django.urls import reverse
 from django.views import generic
 from django.views.generic.edit import FormMixin
@@ -7,7 +8,7 @@ from post.forms import CommentCreateForm
 from post.models import Post, Tag, Comment
 
 
-class PostListView(generic.ListView):
+class PostListView(LoginRequiredMixin, generic.ListView):
     model = Post
     paginate_by = 5
     template_name = "post/post_list.html"
@@ -18,7 +19,7 @@ class PostListView(generic.ListView):
         return queryset
 
 
-class PostCreateView(generic.CreateView):
+class PostCreateView(LoginRequiredMixin, generic.CreateView):
     model = Post
     fields = ("tag", "title", "content",)
 
@@ -30,7 +31,7 @@ class PostCreateView(generic.CreateView):
         return self.object.get_absolute_url()
 
 
-class PostDetailView(FormMixin, generic.DetailView):
+class PostDetailView(LoginRequiredMixin, FormMixin, generic.DetailView):
     model = Post
     form_class = CommentCreateForm
 
@@ -71,7 +72,7 @@ class PostDetailView(FormMixin, generic.DetailView):
         return self.object.get_absolute_url()
 
 
-class PostUpdateView(generic.UpdateView):
+class PostUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Post
     fields = ("title", "content",)
 
@@ -79,18 +80,18 @@ class PostUpdateView(generic.UpdateView):
         return self.object.get_absolute_url()
 
 
-class PostDeleteView(generic.DeleteView):
+class PostDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Post
 
     def get_success_url(self):
         return reverse("post:post-list")
 
 
-class TagListView(generic.ListView):
+class TagListView(LoginRequiredMixin, generic.ListView):
     model = Tag
 
 
-class TagCreateView(generic.CreateView):
+class TagCreateView(LoginRequiredMixin, generic.CreateView):
     model = Tag
     fields = ("name",)
 
@@ -98,7 +99,7 @@ class TagCreateView(generic.CreateView):
         return reverse("post:tag-list")
 
 
-class TagDetailView(generic.DetailView):
+class TagDetailView(LoginRequiredMixin, generic.DetailView):
     model = Tag
 
     def get_context_data(self, **kwargs):
@@ -113,7 +114,7 @@ class TagDetailView(generic.DetailView):
         return context
 
 
-class TagUpdateView(generic.UpdateView):
+class TagUpdateView(LoginRequiredMixin, generic.UpdateView):
     model = Tag
     fields = ("name",)
 
@@ -121,14 +122,14 @@ class TagUpdateView(generic.UpdateView):
         return reverse("post:tag-list")
 
 
-class TagDeleteView(generic.DeleteView):
+class TagDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Tag
 
     def get_success_url(self):
         return reverse("post:tag-list")
 
 
-class CommentDeleteView(generic.DeleteView):
+class CommentDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Comment
 
     def get_success_url(self):
