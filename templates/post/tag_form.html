@@ -1,11 +1,14 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>{{ object|yesno:"Update,Create" }} Tag</h1>
-  <form action="" method="post" novalidate>
-    {% csrf_token %}
-    {{ form.as_p }}
+  <div class="sidebar-nav">
+    <h1>{{ object|yesno:"Update,Create" }} Tag</h1>
+    <form action="" method="post" novalidate class="matrix-form">
+      {% csrf_token %}
+      {{ form.as_p }}
 
-    <input type="submit" value="Submit" class="btn btn-primary">
-  </form>
+      <input type="submit" value="Update" class="matrix-button-primary">
+      <a class="matrix-button-secondary btn btn-secondary" href="{{ tag.get_absolute_url }}">Cancel</a>
+    </form>
+  </div>
 {% endblock %}

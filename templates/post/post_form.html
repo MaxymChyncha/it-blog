@@ -1,11 +1,15 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 
 {% block content %}
-  <h1>{{ object|yesno:"Update,Create" }} Post</h1>
-  <form action="" method="post" novalidate>
-    {% csrf_token %}
-    {{ form.as_p }}
+  <div class="sidebar-nav">
+    <h1>{{ object|yesno:"Update,Create" }} Post</h1>
+    <form action="" method="post" novalidate class="matrix-form">
+      {% csrf_token %}
+      {{ form|crispy }}
 
-    <input type="submit" value="Submit" class="btn btn-primary">
-  </form>
+      <input type="submit" value="Create" class="matrix-button-primary">
+      <a class="matrix-button-secondary btn btn-secondary" href="{% url 'post:post-list' %}">Cancel</a>
+    </form>
+  </div>
 {% endblock %}

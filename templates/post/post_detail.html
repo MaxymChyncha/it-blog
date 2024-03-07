@@ -1,38 +1,48 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 
 {% block content %}
-  <a href="{% url 'post:post-delete' pk=post.id %}" class="btn btn-danger link-to-page">
-    Delete
-  </a>
+  <div class="sidebar-nav">
+    <a style="float: right" href="{% url 'post:post-delete' pk=post.id %}" class="matrix-button-danger link-to-page">
+      Delete
+    </a>
+    <a style="float: right" href="{% url 'post:post-update' pk=post.id %}" class="matrix-button-secondary link-to-page">
+      Update
+    </a>
+    <h1>{{ post.title }}</h1>
+    <h6><strong>{{ post.author.username }}</strong> at {{ post.created_at }}</h6>
+    <p><em>{{ post.content }}</em></p>
+    <h5>Comment{{ post.comments_counter|pluralize }}: {{ post.comments_counter }}</h5>
+    <ul class="matrix-blog-list">
+      {% for comment in paginated_obj %}
+        <li class="matrix-blog-item">
+          <div class="comment-info">
+            <span class="comment-author"><strong>{{ comment.author.username }}</strong></span> at <span
+              class="comment-created">{{ comment.created_at }}</span>
+          </div>
+          {% if comment.author.id == request.user.id %}
+            <div class="comment-actions">
+              <a style="float: right" href="{% url 'post:comment-delete' pk=comment.id %}"
+                 class="matrix-button-danger link-to-page">
+                Delete
+              </a>
+              <a style="float: right" href="{% url 'post:comment-update' pk=comment.id %}"
+                 class="matrix-button-secondary link-to-page">
+                Update
+              </a>
+            </div>
+          {% endif %}
+          <div class="comment-content">
+            {{ comment.content }}
+          </div>
 
-  <a href="{% url 'post:post-update' pk=post.id %}" class="btn btn-secondary link-to-page">
-    Update
-  </a>
-  <h1>{{ post.title }}</h1>
-  <h6>{{ post.author.username }} at {{ post.created_at }}</h6>
-  <p>{{ post.content }}</p>
-  <h5>Comment{{ post.comments_counter|pluralize }}: {{ post.comments_counter }}</h5>
-  <ul class="blog-list">
-    {% for comment in paginated_obj %}
-      <li class="blog-item">
-        {{ comment.author.username }} at {{ comment.created_at }}
-        <br>
-        {{ comment.content }}
-        {% if comment.author.id == request.user.id %}
-          <a href="{% url 'post:comment-update' pk=comment.id %}" class="btn btn-secondary link-to-page">
-            Update
-          </a>
-          <a href="{% url 'post:comment-delete' pk=comment.id %}" class="btn btn-danger link-to-page">
-            Delete
-          </a>
-        {% endif %}
-      </li>
-    {% endfor %}
-  </ul>
-  <form action="" method="post" novalidate>
-    {% csrf_token %}
-    {{ form.as_p }}
-    <input type="submit" value="Submit" class="btn btn-primary">
-  </form>
-
+        </li>
+      {% endfor %}
+    </ul>
+    <form action="" method="post" novalidate class="matrix-form">
+      {% csrf_token %}
+      {{ form|crispy }}
+      <input type="submit" value="Add comment" class="matrix-button-primary">
+    </form>
+  </div>
 {% endblock %}

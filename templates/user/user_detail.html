@@ -1,23 +1,31 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <a href="{% url 'user:user-delete' pk=user.id %}" class="btn btn-danger link-to-page">
-    Delete
-  </a>
-  <a href="{% url 'user:user-update' pk=user.id %}" class="btn btn-secondary link-to-page">
-    Update
-  </a>
-  <h1>{{ user.username }}</h1>
-  <h6>{{ user.first_name }} {{ user.last_name }}</h6>
-  <h5>Posts:</h5>
-  <ul class="blog-list">
-    {% for post in paginated_obj %}
-      <li class="blog-item">
-        <h4> {{ post.title }} </h4>>
-        <h6>Created at: {{ post.created_at }}</h6>
-        <p>{{ post.content }}</p>
-      </li>
-    {% endfor %}
-  </ul>
-  
+  <div class="sidebar-nav">
+    <a style="float: right" href="{% url 'user:user-delete' pk=user.id %}" class="matrix-button-danger link-to-page">
+      Delete
+    </a>
+    <a style="float: right" href="{% url 'user:user-update' pk=user.id %}" class="matrix-button-secondary link-to-page">
+      Update
+    </a>
+
+
+    <h1><strong>{{ user.username }}</strong></h1>
+    <h6>{{ user.first_name }} {{ user.last_name }}</h6>
+    <h3>Posts:</h3>
+    <table class="table">
+      <tr>
+        <th>Title</th>
+        <th>Created at</th>
+        <th>Comments</th>
+      </tr>
+      {% for post in paginated_obj %}
+        <tr>
+          <td><a href="{{ post.get_absolute_url }}" class="matrix-link">{{ post.title }}</a></td>
+          <td>{{ post.created_at }}</td>
+          <td>{{ post.comments_counter }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
 {% endblock %}
