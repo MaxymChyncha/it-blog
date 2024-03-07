@@ -41,11 +41,10 @@ class PostListView(LoginRequiredMixin, generic.ListView):
         return context
 
 
-
-
 class PostCreateView(LoginRequiredMixin, generic.CreateView):
     model = Post
     form_class = PostCreateForm
+
     # fields = ("tag", "title", "content",)
 
     def form_valid(self, form):
@@ -115,6 +114,7 @@ class PostDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class TagListView(LoginRequiredMixin, generic.ListView):
     model = Tag
+    paginate_by = 5
 
     def get_queryset(self):
         queryset = super(TagListView, self).get_queryset()
