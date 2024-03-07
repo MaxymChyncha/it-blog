@@ -8,7 +8,7 @@ from post.forms import (
     CommentCreateForm,
     CommentUpdateForm,
     PostSearchForm,
-    TagSearchForm
+    TagSearchForm, PostCreateForm
 )
 from post.models import Post, Tag, Comment
 
@@ -41,9 +41,12 @@ class PostListView(LoginRequiredMixin, generic.ListView):
         return context
 
 
+
+
 class PostCreateView(LoginRequiredMixin, generic.CreateView):
     model = Post
-    fields = ("tag", "title", "content",)
+    form_class = PostCreateForm
+    # fields = ("tag", "title", "content",)
 
     def form_valid(self, form):
         form.instance.author = self.request.user
