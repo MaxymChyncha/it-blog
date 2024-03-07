@@ -12,6 +12,10 @@ class Tag(models.Model):
     def get_absolute_url(self) -> str:
         return reverse("post:tag-detail", kwargs={"pk": self.pk})
 
+    @property
+    def posts_counter(self):
+        return self.posts.count()
+
     def __str__(self) -> str:
         return self.name
 
