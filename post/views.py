@@ -4,7 +4,12 @@ from django.views import generic
 from django.views.generic.edit import FormMixin
 
 from config.utils.paginators import paginate_context
-from post.forms import CommentCreateForm, CommentUpdateForm, PostSearchForm, TagSearchForm
+from post.forms import (
+    CommentCreateForm,
+    CommentUpdateForm,
+    PostSearchForm,
+    TagSearchForm
+)
 from post.models import Post, Tag, Comment
 
 
@@ -171,5 +176,4 @@ class CommentDeleteView(LoginRequiredMixin, generic.DeleteView):
     model = Comment
 
     def get_success_url(self):
-        post_pk = self.object.post_id
-        return reverse("post:post-detail", kwargs={"pk": post_pk})
+        return self.object.get_absolute_url()
