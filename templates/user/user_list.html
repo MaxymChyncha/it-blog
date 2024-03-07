@@ -1,22 +1,29 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 
 {% block content %}
-  <h1>Users</h1>
-  <form method="get" action="" class="form-inline">
-    {{ search_form.as_p }}
-    <input type="submit" value="🔎" class="btn btn-secondary">
-  </form>
-  <a style="float: right" href="{% url 'user:user-create' %}" class="btn btn-primary link-to-page">
-    Create
-  </a>
-  <ul class="blog-list">
-    {% for user in user_list %}
-      <li class="blog-item">
-        <h4><a href="{{ user.get_absolute_url }}">{{ user.username }}</a></h4>
-        <p>Posts written: {{ user.posts_counter }}</p>
-        <p>Comments left: {{ user.comments_counter }}</p>
-      </li>
-    {% endfor %}
-  </ul>
-
+  <div class="sidebar-nav">
+    <a style="float: right" href="{% url 'user:user-create' %}" class="matrix-button-primary link-to-page">
+      Create
+    </a>
+    <h1>Users</h1>
+    <form method="get" action="" class="matrix-form-inline form-inline">
+      {{ search_form|crispy }}
+      <input type="submit" value="🔎" class="matrix-button-secondary">
+    </form>
+    <table class="table">
+      <tr>
+        <th>User</th>
+        <th>Posts written</th>
+        <th>Comments left</th>
+      </tr>
+      {% for user in user_list %}
+        <tr>
+          <td><a href="{{ user.get_absolute_url }}" class="matrix-link">{{ user.username }}</a></td>
+          <td>{{ user.posts_counter }}</td>
+          <td>{{ user.comments_counter }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
 {% endblock %}

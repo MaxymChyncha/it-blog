@@ -1,24 +1,34 @@
 {% extends "base.html" %}
+{% load crispy_forms_filters %}
 
 {% block content %}
-  <h1>IT Blog</h1>
-  <form method="get" action="" class="form-inline">
-    {{ search_form.as_p }}
-    <input type="submit" value="🔎" class="btn btn-secondary">
-  </form>
-  <a style="float: right" href="{% url 'post:post-create' %}" class="btn btn-primary link-to-page">
-    Create
-  </a>
-  <ul class="blog-list">
-    {% for post in post_list %}
-      <li class="blog-item">
-        <h4><a href="{{ post.get_absolute_url }}">{{ post.title }}</a></h4>
-        <p>Author: {{ post.author.username }}</p>
-        <p>Created at: {{ post.created_at }}</p>
-        <p>Number of Comments: {{ post.comments_counter }}</p>
-      </li>
-    {% endfor %}
-  </ul>
-
-
+  <div class="sidebar-nav">
+    <h1>
+      IT Blog
+      <a style="float: right" href="{% url 'post:post-create' %}"
+         class="matrix-button-primary link-to-page btn btn-primary link-to-page">
+        Create
+      </a>
+    </h1>
+    <form method="get" action="" class="matrix-form-inline form-inline">
+      {{ search_form|crispy }}
+      <input type="submit" value="🔎" class="matrix-button-secondary">
+    </form>
+    <table class="table">
+      <tr>
+        <th>Post Title</th>
+        <th>Author</th>
+        <th>Created at</th>
+        <th>Number of comments</th>
+      </tr>
+      {% for post in post_list %}
+        <tr>
+          <td><a href="{{ post.get_absolute_url }}" class="matrix-link">{{ post.title }}</a></td>
+          <td><a href="{{ post.author.get_absolute_url }}" class="matrix-link">{{ post.author.username }}</a></td>
+          <td>{{ post.created_at }}</td>
+          <td>{{ post.comments_counter }}</td>
+        </tr>
+      {% endfor %}
+    </table>
+  </div>
 {% endblock %}

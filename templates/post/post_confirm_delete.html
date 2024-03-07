@@ -1,11 +1,12 @@
 {% extends "base.html" %}
 
 {% block content %}
-  <h1>Delete Post?</h1>
-  <form action="" method="post">
-    {% csrf_token %}
-
-    <input type="submit" value="Yes" class="btn btn-danger">
-    <a class="btn btn-secondary" href="{% url 'post:post-detail' post.id %}">Cancel</a>
-  </form>
+  <div class="sidebar-nav">
+    <h1>Delete Post?</h1>
+    <form action="" method="post" class="matrix-form">
+      {% csrf_token %}
+      <input type="submit" value="Yes" class="matrix-button-danger btn btn-danger">
+      <a class="matrix-button-secondary btn btn-secondary" href="{% url 'post:post-detail' post.id %}">Cancel</a>
+    </form>
+  </div>
 {% endblock %}
