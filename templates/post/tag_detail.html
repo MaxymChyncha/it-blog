@@ -22,7 +22,7 @@
             <td><a href="{{ post.get_absolute_url }}" class="matrix-link">{{ post.title }}</a></td>
             <td>
               {% for tag in post.tag.all %}
-                {{ tag.name }} |
+                {{ tag.name }}
               {% endfor %}
             </td>
           </tr>

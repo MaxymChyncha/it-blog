@@ -2,23 +2,22 @@
 
 {% block content %}
   <div class="sidebar-nav">
-    <h1>Login</h1>
+    <h1>Enter The Matrix</h1>
 
     {% if form.errors %}
       <p class="matrix-error">Your username and password didn't match. Please try again.</p>
     {% endif %}
 
     {% if next %}
-      <p class="matrix-info">Please login to see this page.</p>
+      <p class="matrix-info">Please enter to see this page.</p>
     {% endif %}
 
     <form method="post" action="{% url 'user:login' %}" class="matrix-form">
       {% csrf_token %}
       {{ form.as_p }}
 
-      <input type="submit" value="Login" class="matrix-button"/>
+      <input type="submit" value="Enter" class="matrix-button-primary"/>
       <input type="hidden" name="next" value="{{ next }}"/>
     </form>
   </div>
 {% endblock %}
-
