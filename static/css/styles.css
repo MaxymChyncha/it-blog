@@ -21,14 +21,14 @@
 }
 
 .matrix-link {
-    color: #306bff;
+    color: rgba(6, 161, 8, 0.96);
     text-decoration: none;
     font-size: 18px;
     transition: color 0.3s;
 }
 
 .matrix-link:hover {
-    color: #306bff;
+    color: rgba(6, 161, 8, 0.96);
 }
 
 .matrix-button {
@@ -63,7 +63,7 @@
 }
 
 .matrix-info {
-    color: #00FF00;
+    color: black;
 }
 
 .matrix-form {
@@ -73,19 +73,6 @@
 .matrix-form-inline {
     display: flex;
     align-items: center;
-}
-
-.matrix-button-secondary {
-    background-color: #555;
-    color: #fff;
-    border: none;
-    padding: 8px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.matrix-button-secondary:hover {
-    background-color: #777;
 }
 
 .matrix-button-primary {
@@ -112,21 +99,6 @@
 }
 
 
-.matrix-button-danger {
-    background-color: #FF0000;
-    color: #fff;
-    border: none;
-    padding: 8px 15px;
-    text-decoration: none;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.matrix-button-danger:hover {
-    background-color: #FF3333;
-}
-
-
 .matrix-pagination {
     list-style-type: none;
     padding: 0;
@@ -140,13 +112,13 @@
 }
 
 .matrix-page-link {
-    color: #00FF00;
+    color: rgba(6, 161, 8, 0.96);
     text-decoration: none;
     cursor: pointer;
 }
 
 .matrix-page-link:hover {
-    color: #33FF33;
+    color: rgba(6, 161, 8, 0.96);
 }
 
 .matrix-page-item.active .matrix-page-link {

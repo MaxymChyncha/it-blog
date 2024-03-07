@@ -6,7 +6,7 @@
     <h1>
       IT Blog
       <a style="float: right" href="{% url 'post:post-create' %}"
-         class=" btn btn-primary link-to-page">
+         class="matrix-button-primary btn btn-primary link-to-page">
         Create
       </a>
     </h1>
@@ -14,21 +14,25 @@
       {{ search_form|crispy }}
       <input type="submit" value="🔎" class="btn-secondary btn">
     </form>
-    <table class="table">
-      <tr>
-        <th>Post Title</th>
-        <th>Author</th>
-        <th>Created at</th>
-        <th>Number of comments</th>
-      </tr>
-      {% for post in post_list %}
+    {% if post_list %}
+      <table class="table">
         <tr>
-          <td><a href="{{ post.get_absolute_url }}" class="matrix-link">{{ post.title }}</a></td>
-          <td><a href="{{ post.author.get_absolute_url }}" class="matrix-link">{{ post.author.username }}</a></td>
-          <td>{{ post.created_at }}</td>
-          <td>{{ post.comments_counter }}</td>
+          <th>Post Title</th>
+          <th>Author</th>
+          <th>Created at</th>
+          <th>Number of comments</th>
         </tr>
-      {% endfor %}
-    </table>
+        {% for post in post_list %}
+          <tr>
+            <td><a href="{{ post.get_absolute_url }}" class="matrix-link">{{ post.title }}</a></td>
+            <td><a href="{{ post.author.get_absolute_url }}" class="matrix-link">{{ post.author.username }}</a></td>
+            <td>{{ post.created_at }}</td>
+            <td>{{ post.comments_counter }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>There are no posts here yet!</p>>
+    {% endif %}
   </div>
 {% endblock %}

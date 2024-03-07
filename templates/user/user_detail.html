@@ -13,19 +13,23 @@
     <h1><strong>{{ user.username }}</strong></h1>
     <h6>{{ user.first_name }} {{ user.last_name }}</h6>
     <h3>Posts:</h3>
-    <table class="table">
-      <tr>
-        <th>Title</th>
-        <th>Created at</th>
-        <th>Comments</th>
-      </tr>
-      {% for post in paginated_obj %}
+    {% if paginated_obj %}
+      <table class="table">
         <tr>
-          <td><a href="{{ post.get_absolute_url }}" class="matrix-link">{{ post.title }}</a></td>
-          <td>{{ post.created_at }}</td>
-          <td>{{ post.comments_counter }}</td>
+          <th>Title</th>
+          <th>Created at</th>
+          <th>Comments</th>
         </tr>
-      {% endfor %}
-    </table>
+        {% for post in paginated_obj %}
+          <tr>
+            <td><a href="{{ post.get_absolute_url }}" class="matrix-link">{{ post.title }}</a></td>
+            <td>{{ post.created_at }}</td>
+            <td>{{ post.comments_counter }}</td>
+          </tr>
+        {% endfor %}
+      </table>
+    {% else %}
+      <p>This user doesn't have posts yet!</p>
+    {% endif %}
   </div>
 {% endblock %}

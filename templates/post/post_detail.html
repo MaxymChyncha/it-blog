@@ -3,12 +3,14 @@
 
 {% block content %}
   <div class="sidebar-nav">
-    <a style="float: right" href="{% url 'post:post-delete' pk=post.id %}" class="btn-danger btn link-to-page">
-      Delete
-    </a>
-    <a style="float: right" href="{% url 'post:post-update' pk=post.id %}" class="btn-secondary btn link-to-page">
-      Update
-    </a>
+    {% if user == post.author or user.is_staff %}
+      <a style="float: right" href="{% url 'post:post-delete' pk=post.id %}" class="btn-danger btn link-to-page">
+        Delete
+      </a>
+      <a style="float: right" href="{% url 'post:post-update' pk=post.id %}" class="btn-secondary btn link-to-page">
+        Update
+      </a>
+    {% endif %}
     <h1>{{ post.title }}</h1>
     <h6><strong>{{ post.author.username }}</strong> at {{ post.created_at }}</h6>
     <p><em>{{ post.content }}</em></p>
