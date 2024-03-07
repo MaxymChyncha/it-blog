@@ -7,8 +7,8 @@
       {% csrf_token %}
       {{ form.as_p }}
 
-      <input type="submit" value="Submit" class="matrix-button-primary">
-      <a class="matrix-button-secondary btn btn-secondary" href="{{ comment.get_absolute_url }}">Cancel</a>
+      <input type="submit" value="Update" class="matrix-button-primary btn-primary btn">
+      <a class="btn btn-secondary" href="{{ comment.get_absolute_url }}">Cancel</a>
     </form>
   </div>
 {% endblock %}

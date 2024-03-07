@@ -8,8 +8,8 @@
       {% csrf_token %}
       {{ form|crispy }}
 
-      <input type="submit" value="Create" class="matrix-button-primary">
-      <a class="matrix-button-secondary btn btn-secondary" href="{% url 'post:post-list' %}">Cancel</a>
+      <input type="submit" value="Create" class="matrix-button-primary btn-primary btn">
+      <a class="btn-secondary btn" href="{% url 'post:post-list' %}">Cancel</a>
     </form>
   </div>
 {% endblock %}

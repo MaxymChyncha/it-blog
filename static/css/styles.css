@@ -1,7 +1,14 @@
+#c {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
 
 .sidebar-nav {
     padding: 20px;
-    background-color: #f2f2f2;
+    background-color: rgba(255, 255, 255, 0.8);
+
 }
 
 .matrix-list {
@@ -14,21 +21,21 @@
 }
 
 .matrix-link {
-    color: #00FF00;
+    color: #306bff;
     text-decoration: none;
     font-size: 18px;
     transition: color 0.3s;
 }
 
 .matrix-link:hover {
-    color: #33FF33;
+    color: #306bff;
 }
 
 .matrix-button {
-    background-color: #00FF00;
-    color: #000;
+    background-color: transparent;
+    color: #ff4328;
     border: none;
-    padding: 8px 15px;
+    padding: 0;
     text-align: center;
     text-decoration: none;
     display: inline-block;
@@ -40,7 +47,7 @@
 }
 
 .matrix-button:hover {
-    background-color: #33FF33;
+    text-decoration: underline;
 }
 
 .matrix-button:focus {

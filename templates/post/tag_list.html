@@ -3,13 +3,13 @@
 
 {% block content %}
   <div class="sidebar-nav">
-    <a style="float: right" href="{% url 'post:tag-create' %}" class="matrix-button-primary link-to-page">
+    <a style="float: right" href="{% url 'post:tag-create' %}" class="matrix-button-primary btn-primary btn link-to-page">
       Create
     </a>
     <h1>Tags</h1>
     <form method="get" action="" class="matrix-form-inline form-inline">
       {{ search_form|crispy }}
-      <input type="submit" value="🔎" class="matrix-button-secondary">
+      <input type="submit" value="🔎" class="btn-secondary btn">
     </form>
     <table class="table">
       <tr>

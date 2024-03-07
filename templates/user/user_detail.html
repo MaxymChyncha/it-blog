@@ -2,10 +2,10 @@
 
 {% block content %}
   <div class="sidebar-nav">
-    <a style="float: right" href="{% url 'user:user-delete' pk=user.id %}" class="matrix-button-danger link-to-page">
+    <a style="float: right" href="{% url 'user:user-delete' pk=user.id %}" class="btn-danger btn link-to-page">
       Delete
     </a>
-    <a style="float: right" href="{% url 'user:user-update' pk=user.id %}" class="matrix-button-secondary link-to-page">
+    <a style="float: right" href="{% url 'user:user-update' pk=user.id %}" class="btn-secondary btn link-to-page">
       Update
     </a>
 
