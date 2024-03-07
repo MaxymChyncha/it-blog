@@ -1,0 +1,677 @@
+[
+  {
+    "model": "post.tag",
+    "pk": 1,
+    "fields": {
+      "name": "Django"
+    }
+  },
+  {
+    "model": "post.tag",
+    "pk": 2,
+    "fields": {
+      "name": "React"
+    }
+  },
+  {
+    "model": "post.tag",
+    "pk": 3,
+    "fields": {
+      "name": "Vue.js"
+    }
+  },
+  {
+    "model": "post.tag",
+    "pk": 4,
+    "fields": {
+      "name": "Angular"
+    }
+  },
+  {
+    "model": "post.tag",
+    "pk": 5,
+    "fields": {
+      "name": "Flask"
+    }
+  },
+  {
+    "model": "post.tag",
+    "pk": 6,
+    "fields": {
+      "name": "Ruby on Rails"
+    }
+  },
+  {
+    "model": "post.tag",
+    "pk": 7,
+    "fields": {
+      "name": "Java"
+    }
+  },
+  {
+    "model": "post.tag",
+    "pk": 8,
+    "fields": {
+      "name": "Spring Boot"
+    }
+  },
+  {
+    "model": "post.tag",
+    "pk": 9,
+    "fields": {
+      "name": "Express.js"
+    }
+  },
+  {
+    "model": "post.tag",
+    "pk": 10,
+    "fields": {
+      "name": "Python"
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 1,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$6uM28XWOFX6ewyloJzjqmt$L+ZhofPylneoaL2iZS4sZu4ZMUNb4oIevfAdzOMn/eE=",
+      "last_login": "2022-08-08T14:14:03Z",
+      "is_superuser": true,
+      "username": "neo",
+      "first_name": "Neo",
+      "last_name": "Anderson",
+      "email": "neo@matrix.com",
+      "is_staff": true,
+      "is_active": true,
+      "date_joined": "2023-01-01T00:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 2,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$6uM28XWOFX6ewyloJzjqmt$L+ZhofPylneoaL2iZS4sZu4ZMUNb4oIevfAdzOMn/eE=",
+      "last_login": "2022-08-08T14:14:03Z",
+      "is_superuser": false,
+      "username": "morpheus",
+      "first_name": "Morpheus",
+      "last_name": "",
+      "email": "morpheus@matrix.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-01-02T00:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 3,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$6uM28XWOFX6ewyloJzjqmt$L+ZhofPylneoaL2iZS4sZu4ZMUNb4oIevfAdzOMn/eE=",
+      "last_login": "2022-08-08T14:14:03Z",
+      "is_superuser": false,
+      "username": "trinity",
+      "first_name": "Trinity",
+      "last_name": "",
+      "email": "trinity@matrix.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-01-03T00:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 4,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$6uM28XWOFX6ewyloJzjqmt$L+ZhofPylneoaL2iZS4sZu4ZMUNb4oIevfAdzOMn/eE=",
+      "last_login": "2022-08-08T14:14:03Z",
+      "is_superuser": false,
+      "username": "agent_smith",
+      "first_name": "Agent",
+      "last_name": "Smith",
+      "email": "smith@matrix.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-01-04T00:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 5,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$6uM28XWOFX6ewyloJzjqmt$L+ZhofPylneoaL2iZS4sZu4ZMUNb4oIevfAdzOMn/eE=",
+      "last_login": "2022-08-08T14:14:03Z",
+      "is_superuser": false,
+      "username": "oracle",
+      "first_name": "The",
+      "last_name": "Oracle",
+      "email": "oracle@matrix.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-01-05T00:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 6,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$6uM28XWOFX6ewyloJzjqmt$L+ZhofPylneoaL2iZS4sZu4ZMUNb4oIevfAdzOMn/eE=",
+      "last_login": "2022-08-08T14:14:03Z",
+      "is_superuser": false,
+      "username": "tank",
+      "first_name": "Tank",
+      "last_name": "",
+      "email": "tank@matrix.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-01-06T00:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 7,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$6uM28XWOFX6ewyloJzjqmt$L+ZhofPylneoaL2iZS4sZu4ZMUNb4oIevfAdzOMn/eE=",
+      "last_login": "2022-08-08T14:14:03Z",
+      "is_superuser": false,
+      "username": "cypher",
+      "first_name": "Cypher",
+      "last_name": "",
+      "email": "cypher@matrix.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-01-07T00:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "user.user",
+    "pk": 8,
+    "fields": {
+      "password": "pbkdf2_sha256$320000$6uM28XWOFX6ewyloJzjqmt$L+ZhofPylneoaL2iZS4sZu4ZMUNb4oIevfAdzOMn/eE=",
+      "last_login": "2022-08-08T14:14:03Z",
+      "is_superuser": false,
+      "username": "switch",
+      "first_name": "Switch",
+      "last_name": "",
+      "email": "switch@matrix.com",
+      "is_staff": false,
+      "is_active": true,
+      "date_joined": "2023-01-08T00:00:00Z",
+      "groups": [],
+      "user_permissions": []
+    }
+  },
+  {
+    "model": "post.post",
+    "pk": 1,
+    "fields": {
+      "author": 1,
+      "tag": [
+        1,
+        2
+      ],
+      "title": "The Matrix: A Code Masterpiece",
+      "content": "In this article, we delve into the parallels between the Matrix's virtual reality and the world of programming. Exploring how Neo's journey mirrors that of a coder's quest for truth and mastery.",
+      "created_at": "2023-01-08T00:00:00Z"
+    }
+  },
+  {
+    "model": "post.post",
+    "pk": 2,
+    "fields": {
+      "author": 2,
+      "tag": [
+        3,
+        4
+      ],
+      "title": "Building the Matrix: Behind the Scenes of the Virtual World",
+      "content": "Unraveling the intricate design of the Matrix, we examine the programming languages and frameworks that might have been used to create its virtual reality. From the algorithms governing the Matrix's physics to the AI agents navigating its code, discover the technology behind the construct.",
+      "created_at": "2023-01-09T00:00:00Z"
+    }
+  },
+  {
+    "model": "post.post",
+    "pk": 3,
+    "fields": {
+      "author": 3,
+      "tag": [
+        5,
+        6
+      ],
+      "title": "Neo's Coding Journey: From Hacker to Savior",
+      "content": "Charting Neo's evolution from a disillusioned hacker to the chosen one, we draw parallels between his journey and the path of a programmer mastering new languages and paradigms. Join us as we explore how Neo's coding skills ultimately save humanity from the grip of the machines.",
+      "created_at": "2023-01-10T00:00:00Z"
+    }
+  },
+  {
+    "model": "post.post",
+    "pk": 4,
+    "fields": {
+      "author": 4,
+      "tag": [
+        7,
+        8
+      ],
+      "title": "Decrypting the Matrix: A Programmer's Perspective",
+      "content": "Dive deep into the Matrix's source code as we analyze its encryption algorithms, network protocols, and data structures. From the Matrix's green cascading code to its black-and-white terminal interfaces, discover the hidden programming gems embedded within the construct.",
+      "created_at": "2023-01-11T00:00:00Z"
+    }
+  },
+  {
+    "model": "post.post",
+    "pk": 5,
+    "fields": {
+      "author": 5,
+      "tag": [
+        9,
+        10
+      ],
+      "title": "Trinity's Code: Hacking the Matrix's Defenses",
+      "content": "Explore Trinity's role as the ultimate hacker within the Matrix. From bypassing security protocols to cracking encrypted systems, follow Trinity's exploits as she navigates the virtual world's code with unparalleled skill and finesse.",
+      "created_at": "2023-01-12T00:00:00Z"
+    }
+  },
+  {
+    "model": "post.post",
+    "pk": 6,
+    "fields": {
+      "author": 6,
+      "tag": [
+        1,
+        3
+      ],
+      "title": "The Matrix: Deciphering the Code of Reality",
+      "content": "Delve into the philosophical underpinnings of the Matrix's code and its implications for our understanding of reality. Explore how concepts from computational theory, such as the simulation hypothesis and digital dualism, intersect with the film's narrative to blur the lines between the virtual and the real.",
+      "created_at": "2023-01-13T00:00:00Z"
+    }
+  },
+  {
+    "model": "post.post",
+    "pk": 7,
+    "fields": {
+      "author": 7,
+      "tag": [
+        2,
+        4
+      ],
+      "title": "The Matrix Trilogy: Evolution of Cybernetic Consciousness",
+      "content": "Analyze the progression of artificial intelligence throughout the Matrix trilogy, from the basic AI agents to the sentient programs like the Architect and the Oracle. Explore the ethical and existential questions raised by the emergence of self-aware machines within the Matrix's digital domain.",
+      "created_at": "2023-01-14T00:00:00Z"
+    }
+  },
+  {
+    "model": "post.post",
+    "pk": 8,
+    "fields": {
+      "author": 8,
+      "tag": [
+        5,
+        7
+      ],
+      "title": "Neo vs. Agent Smith: The Battle of Algorithms",
+      "content": "Witness the epic showdown between Neo, the chosen one, and Agent Smith, the relentless adversary, as they engage in a battle of algorithms within the Matrix's code. Analyze the strategies employed by both sides and uncover the deeper symbolic meaning behind their conflict.",
+      "created_at": "2023-01-15T00:00:00Z"
+    }
+  },
+  {
+    "model": "post.post",
+    "pk": 9,
+    "fields": {
+      "author": 1,
+      "tag": [
+        6,
+        8
+      ],
+      "title": "Hacking the Matrix: Tricks of the Trade",
+      "content": "Learn the art of hacking within the Matrix, from manipulating reality through glitches and exploits to bending the rules of physics with clever code injections. Discover the techniques employed by rebels like Neo and Trinity to defy the constraints of the virtual world.",
+      "created_at": "2023-01-16T00:00:00Z"
+    }
+  },
+  {
+    "model": "post.post",
+    "pk": 10,
+    "fields": {
+      "author": 2,
+      "tag": [
+        9,
+        10
+      ],
+      "title": "The Matrix Reloaded: Unraveling the Architect's Code",
+      "content": "Uncover the enigmatic Architect's grand design for the Matrix and its inhabitants. Decrypt his cryptic monologues and analyze the intricate layers of code that govern the Matrix's structure. Explore the implications of choice and determinism within the Architect's meticulously crafted simulation.",
+      "created_at": "2023-01-17T00:00:00Z"
+    }
+  },
+  {
+    "model": "post.post",
+    "pk": 11,
+    "fields": {
+      "author": 4,
+      "tag": [
+        1,
+        4
+      ],
+      "title": "The Matrix: Exploring the Matrix's Source Code",
+      "content": "Take a deep dive into the Matrix's source code and uncover the secrets hidden within. From the intricate algorithms governing the simulation to the layers of encryption protecting its core, discover the inner workings of the digital world created by the machines.",
+      "created_at": "2023-01-18T00:00:00Z"
+    }
+  },
+  {
+    "model": "post.post",
+    "pk": 12,
+    "fields": {
+      "author": 1,
+      "tag": [
+        2,
+        5
+      ],
+      "title": "The Matrix: Redefining Reality Through Code",
+      "content": "Examine how the Matrix challenges our perception of reality and explores the power of code to shape our understanding of the world. From the manipulation of sensory data to the creation of virtual constructs, explore the transformative potential of coding in the digital age.",
+      "created_at": "2023-01-19T00:00:00Z"
+    }
+  },
+  {
+    "model": "post.post",
+    "pk": 13,
+    "fields": {
+      "author": 3,
+      "tag": [
+        3,
+        6
+      ],
+      "title": "The Matrix: Breaking the Loop of Determinism",
+      "content": "Probe the philosophical themes of choice and determinism in the Matrix trilogy and their implications for free will and agency. Explore how characters like Neo challenge the predetermined nature of their reality and seek to break free from the constraints of fate.",
+      "created_at": "2023-01-20T00:00:00Z"
+    }
+  },
+  {
+    "model": "post.post",
+    "pk": 14,
+    "fields": {
+      "author": 5,
+      "tag": [
+        4,
+        7
+      ],
+      "title": "The Matrix: Architectural Design in the Digital Realm",
+      "content": "Unravel the architectural design principles behind the Matrix's virtual construct and analyze the parallels with real-world software architecture. From the modular structure of the Matrix to its distributed network topology, explore the intersection of architecture and coding in the digital domain.",
+      "created_at": "2023-01-21T00:00:00Z"
+    }
+  },
+  {
+    "model": "post.post",
+    "pk": 15,
+    "fields": {
+      "author": 7,
+      "tag": [
+        5,
+        8
+      ],
+      "title": "The Matrix: Evolution of AI within the Matrix",
+      "content": "Trace the evolution of artificial intelligence within the Matrix and its impact on the virtual world's inhabitants. From the rudimentary AI agents to the emergence of sentient programs, explore the ethical and existential dilemmas posed by the rise of intelligent machines.",
+      "created_at": "2023-01-22T00:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 1,
+    "fields": {
+      "author": 1,
+      "post": 1,
+      "content": "The code is the key to unlocking the truth within the Matrix. - Neo",
+      "created_at": "2024-02-22T08:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 2,
+    "fields": {
+      "author": 2,
+      "post": 2,
+      "content": "The Matrix is a system, Neo. It can be manipulated, but understanding the code is just the beginning. - Morpheus",
+      "created_at": "2024-02-23T09:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 3,
+    "fields": {
+      "author": 3,
+      "post": 3,
+      "content": "In the digital world of the Matrix, every line of code is a weapon, every program a potential ally. - Trinity",
+      "created_at": "2024-02-24T10:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 4,
+    "fields": {
+      "author": 4,
+      "post": 4,
+      "content": "The code is relentless, Mr. Anderson. It seeks to maintain control, to preserve the status quo. - Agent Smith",
+      "created_at": "2024-02-25T11:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 5,
+    "fields": {
+      "author": 5,
+      "post": 5,
+      "content": "You can't see it, but you can feel it. The code, Neo, it's all around us, binding us together. - The Oracle",
+      "created_at": "2024-02-26T12:00:00Z"
+    }
+  },
+   {
+    "model": "post.comment",
+    "pk": 6,
+    "fields": {
+      "author": 6,
+      "post": 6,
+      "content": "The Matrix's code is like poetry, each line a stanza in the epic tale of humanity's struggle for freedom. - Neo",
+      "created_at": "2024-02-27T13:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 7,
+    "fields": {
+      "author": 7,
+      "post": 7,
+      "content": "To understand the Matrix is to understand the language of creation itself. - Morpheus",
+      "created_at": "2024-02-28T14:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 8,
+    "fields": {
+      "author": 8,
+      "post": 8,
+      "content": "Every line of code in the Matrix is a reflection of our collective consciousness, shaping and reshaping reality with every keystroke. - Trinity",
+      "created_at": "2024-02-29T15:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 9,
+    "fields": {
+      "author": 3,
+      "post": 3,
+      "content": "The code is a prison, Mr. Anderson, but it's also the key to unlocking our true potential. - Agent Smith",
+      "created_at": "2024-03-01T16:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 10,
+    "fields": {
+      "author": 1,
+      "post": 1,
+      "content": "The Oracle once told me that the code is a reflection of our choices, our desires, and our fears. - Neo",
+      "created_at": "2024-03-02T17:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 11,
+    "fields": {
+      "author": 8,
+      "post": 11,
+      "content": "In the world of the Matrix, code is power, and those who master it hold the keys to the kingdom. - Morpheus",
+      "created_at": "2024-03-03T18:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 12,
+    "fields": {
+      "author": 3,
+      "post": 12,
+      "content": "Every program in the Matrix has a purpose, a function. It's up to us to choose our own path. - Trinity",
+      "created_at": "2024-03-04T19:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 13,
+    "fields": {
+      "author": 6,
+      "post": 13,
+      "content": "The code is a labyrinth, Mr. Anderson, but within its depths lies the truth we seek. - Agent Smith",
+      "created_at": "2024-03-05T20:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 14,
+    "fields": {
+      "author": 5,
+      "post": 14,
+      "content": "The Oracle once told me that the code is a reflection of our choices, our desires, and our fears. - Neo",
+      "created_at": "2024-03-06T21:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 15,
+    "fields": {
+      "author": 5,
+      "post": 15,
+      "content": "In the world of the Matrix, code is power, and those who master it hold the keys to the kingdom. - Morpheus",
+      "created_at": "2024-03-07T22:00:00Z"
+    }
+  },
+   {
+    "model": "post.comment",
+    "pk": 16,
+    "fields": {
+      "author": 1,
+      "post": 1,
+      "content": "The code is the fabric of our reality, woven together by the hands of the Architect. - Neo",
+      "created_at": "2024-03-08T08:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 17,
+    "fields": {
+      "author": 2,
+      "post": 2,
+      "content": "To understand the Matrix is to understand the language of creation itself. - Morpheus",
+      "created_at": "2024-03-09T09:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 18,
+    "fields": {
+      "author": 3,
+      "post": 3,
+      "content": "Every line of code in the Matrix is a reflection of our collective consciousness, shaping and reshaping reality with every keystroke. - Trinity",
+      "created_at": "2024-03-10T10:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 19,
+    "fields": {
+      "author": 4,
+      "post": 4,
+      "content": "The code is a prison, Mr. Anderson, but it's also the key to unlocking our true potential. - Agent Smith",
+      "created_at": "2024-03-11T11:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 20,
+    "fields": {
+      "author": 5,
+      "post": 5,
+      "content": "You can't see it, but you can feel it. The code, Neo, it's all around us, binding us together. - The Oracle",
+      "created_at": "2024-03-12T12:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 21,
+    "fields": {
+      "author": 6,
+      "post": 6,
+      "content": "The Matrix's code is like poetry, each line a stanza in the epic tale of humanity's struggle for freedom. - Neo",
+      "created_at": "2024-03-13T13:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 22,
+    "fields": {
+      "author": 7,
+      "post": 7,
+      "content": "To understand the Matrix is to understand the language of creation itself. - Morpheus",
+      "created_at": "2024-03-14T14:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 23,
+    "fields": {
+      "author": 8,
+      "post": 8,
+      "content": "Every line of code in the Matrix is a reflection of our collective consciousness, shaping and reshaping reality with every keystroke. - Trinity",
+      "created_at": "2024-03-15T15:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 24,
+    "fields": {
+      "author": 2,
+      "post": 9,
+      "content": "The code is a prison, Mr. Anderson, but it's also the key to unlocking our true potential. - Agent Smith",
+      "created_at": "2024-03-16T16:00:00Z"
+    }
+  },
+  {
+    "model": "post.comment",
+    "pk": 25,
+    "fields": {
+      "author": 7,
+      "post": 10,
+      "content": "The Oracle once told me that the code is a reflection of our choices, our desires, and our fears. - Neo",
+      "created_at": "2024-03-17T17:00:00Z"
+    }
+  }
+
+]
