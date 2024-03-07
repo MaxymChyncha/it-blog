@@ -3,10 +3,10 @@
 
 {% block content %}
   <div class="sidebar-nav">
-    <a style="float: right" href="{% url 'post:post-delete' pk=post.id %}" class="matrix-button-danger link-to-page">
+    <a style="float: right" href="{% url 'post:post-delete' pk=post.id %}" class="btn-danger btn link-to-page">
       Delete
     </a>
-    <a style="float: right" href="{% url 'post:post-update' pk=post.id %}" class="matrix-button-secondary link-to-page">
+    <a style="float: right" href="{% url 'post:post-update' pk=post.id %}" class="btn-secondary btn link-to-page">
       Update
     </a>
     <h1>{{ post.title }}</h1>
@@ -23,11 +23,11 @@
           {% if comment.author.id == request.user.id %}
             <div class="comment-actions">
               <a style="float: right" href="{% url 'post:comment-delete' pk=comment.id %}"
-                 class="matrix-button-danger link-to-page">
+                 class="btn-danger btn link-to-page">
                 Delete
               </a>
               <a style="float: right" href="{% url 'post:comment-update' pk=comment.id %}"
-                 class="matrix-button-secondary link-to-page">
+                 class="btn-secondary btn link-to-page">
                 Update
               </a>
             </div>
