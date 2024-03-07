@@ -13,7 +13,7 @@ class Tag(models.Model):
         return reverse("post:tag-detail", kwargs={"pk": self.pk})
 
     @property
-    def posts_counter(self):
+    def posts_counter(self) -> int:
         return self.posts.count()
 
     def __str__(self) -> str:

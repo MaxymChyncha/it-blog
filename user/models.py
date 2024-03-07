@@ -7,14 +7,14 @@ class User(AbstractUser):
         ordering = ("username",)
 
     @property
-    def posts_counter(self):
+    def posts_counter(self) -> int:
         return self.posts.count()
 
     @property
-    def comments_counter(self):
+    def comments_counter(self) -> int:
         return self.comments.count()
 
-    def get_absolute_url(self):
+    def get_absolute_url(self) -> str:
         return reverse("user:user-detail", kwargs={"pk": self.pk})
 
     def __str__(self) -> str:
