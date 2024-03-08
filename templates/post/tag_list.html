@@ -11,8 +11,8 @@
     {% endif %}
     <h1>Tags</h1>
     <form method="get" action="" class="matrix-form-inline form-inline">
-      {{ search_form|crispy }}
-      <input type="submit" value="🔎" class="btn-secondary btn">
+      {{ search_form }}
+      <input style="background-color: green" type="submit" value="🔎" class="btn-secondary">
     </form>
     {% if tag_list %}
       <table class="table">
