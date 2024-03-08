@@ -3,15 +3,15 @@
 <div class="sidebar-nav">
   <ul class="matrix-pagination pagination">
     {% if page_obj.has_previous %}
-      <li class="matrix-page-item page-item">
+      <li style="background-color: green; color: white" class="btn">
         <a href="?{% query_transform request page=page_obj.previous_page_number %}" class="matrix-page-link">Prev</a>
       </li>
     {% endif %}
-    <li class="matrix-page-item active page-item active">
+    <li style="background-color: green; color: white" class="matrix-page-item active btn b">
       <span class="matrix-page-link">{{ page_obj.number }} of {{ paginator.num_pages }}</span>
     </li>
     {% if page_obj.has_next %}
-      <li class="matrix-page-item page-item">
+      <li style="background-color: green; color: white" class="btn">
         <a href="?{% query_transform request page=page_obj.next_page_number %}" class="matrix-page-link">Next</a>
       </li>
     {% endif %}

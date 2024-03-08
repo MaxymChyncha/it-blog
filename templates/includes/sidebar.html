@@ -2,7 +2,7 @@
   <ul class="matrix-list">
     {% if user.is_authenticated %}
       <li class="list-group-item">User:
-        <a href="{{ user.get_absolute_url }}" class="matrix-link">{{ user.get_username }}</a></li>
+        <a href="{{ request.user.get_absolute_url }}" class="matrix-link">{{ request.user.get_username }}</a></li>
       <li class="list-group-item">
         <form action="{% url 'user:logout' %}?next={{ request.path }}" method="post">
           {% csrf_token %}

@@ -76,8 +76,8 @@
 }
 
 .matrix-button-primary {
-    background-color: #00FF00;
-    color: #000;
+    background-color: green;
+    color: white;
     border: none;
     padding: 8px 15px;
     text-decoration: none;
@@ -86,7 +86,7 @@
 }
 
 .matrix-button-primary:hover {
-    background-color: #33FF33;
+    background-color: rgba(39,161,15,0.96);
 }
 
 .matrix-blog-list {
@@ -112,13 +112,13 @@
 }
 
 .matrix-page-link {
-    color: rgba(6, 161, 8, 0.96);
+    color: white;
     text-decoration: none;
     cursor: pointer;
 }
 
 .matrix-page-link:hover {
-    color: rgba(6, 161, 8, 0.96);
+    color: black;
 }
 
 .matrix-page-item.active .matrix-page-link {
