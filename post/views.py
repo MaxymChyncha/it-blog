@@ -1,6 +1,7 @@
 from django.contrib.auth.mixins import LoginRequiredMixin
 from django.db.models import QuerySet
 from django.http import HttpRequest, HttpResponse
+from django.shortcuts import render
 from django.urls import reverse
 from django.views import generic
 from django.views.generic.edit import FormMixin
@@ -13,6 +14,10 @@ from post.forms import (
     TagSearchForm, PostCreateForm
 )
 from post.models import Post, Tag, Comment
+
+
+def index(request: HttpRequest) -> HttpResponse:
+    return render(request, "post/index.html")
 
 
 class PostListView(LoginRequiredMixin, generic.ListView):
