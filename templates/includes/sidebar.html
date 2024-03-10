@@ -4,7 +4,7 @@
       <li class="list-group-item">User:
         <a href="{{ request.user.get_absolute_url }}" class="matrix-link">{{ request.user.get_username }}</a></li>
       <li class="list-group-item">
-        <form action="{% url 'user:logout' %}?next={{ request.path }}" method="post">
+        <form action="{% url 'user:logout' %}" method="post">
           {% csrf_token %}
           <button type="submit" class="matrix-button">Exit</button>
         </form>
