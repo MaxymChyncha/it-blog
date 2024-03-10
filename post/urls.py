@@ -12,12 +12,13 @@ from post.views import (
     TagDeleteView,
     TagDetailView,
     CommentDeleteView,
-    CommentUpdateView,
+    CommentUpdateView, index,
 )
 
 urlpatterns = [
+    path("", index, name="index"),
     path(
-        "",
+        "posts/",
         PostListView.as_view(),
         name="post-list"
     ),
