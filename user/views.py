@@ -15,10 +15,12 @@ class UserListView(LoginRequiredMixin, generic.ListView):
     def get_queryset(self) -> QuerySet:
         queryset = super(UserListView, self).get_queryset()
         form = UserSearchForm(self.request.GET)
+
         if form.is_valid():
             return queryset.filter(
                 username__icontains=form.cleaned_data["username"]
             )
+
         return queryset
 
     def get_context_data(self, **kwargs) -> dict:
