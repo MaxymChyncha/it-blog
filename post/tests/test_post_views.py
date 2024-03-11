@@ -54,7 +54,7 @@ class PrivatePostViewTest(TestCase):
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(
-            list(res.context["post_list"]),
+            list(res.context.get("post_list")),
             list(Post.objects.all())
         )
         self.assertTemplateUsed(res, "post/post_list.html")
@@ -65,7 +65,7 @@ class PrivatePostViewTest(TestCase):
 
         self.assertEqual(res.status_code, 200)
         self.assertIn("search_form", res.context)
-        self.assertEqual(list(res.context["post_list"]), [self.post_2])
+        self.assertEqual(list(res.context.get("post_list")), [self.post_2])
 
     def test_post_create_author_equal_current_logged_user(self):
         data = {
