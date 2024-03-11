@@ -34,7 +34,7 @@ class PostListView(LoginRequiredMixin, generic.ListView):
 
         if form.is_valid():
             return queryset.filter(
-                title__icontains=form.cleaned_data["title"]
+                title__icontains=form.cleaned_data.get("title")
             )
 
         return queryset
@@ -68,9 +68,7 @@ class PostDetailView(LoginRequiredMixin, FormMixin, generic.DetailView):
     def get_queryset(self) -> QuerySet:
         queryset = super(PostDetailView, self).get_queryset()
         queryset = (
-            queryset
-            .select_related("author")
-            .prefetch_related("comments__author")
+            queryset.select_related("author").prefetch_related("comments__author")
         )
         return queryset
 
@@ -123,10 +121,12 @@ class TagListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self) -> QuerySet:
         queryset = super(TagListView, self).get_queryset()
+        queryset = queryset.prefetch_related("posts")
+
         form = TagSearchForm(self.request.GET)
         if form.is_valid():
             return queryset.filter(
-                name__icontains=form.cleaned_data["name"]
+                name__icontains=form.cleaned_data.get("name")
             )
         return queryset
 
@@ -152,7 +152,7 @@ class TagDetailView(LoginRequiredMixin, generic.DetailView):
 
     def get_context_data(self, **kwargs) -> dict:
         context = super(TagDetailView, self).get_context_data(**kwargs)
-        posts = self.object.posts.all()
+        posts = self.object.posts.prefetch_related("tag")
         context = paginate_context(self.request, posts, context, 5)
         return context
 
