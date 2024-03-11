@@ -43,7 +43,7 @@ class PrivateUserViewTest(TestCase):
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(
-            list(res.context["user_list"]),
+            list(res.context.get("user_list")),
             list(get_user_model().objects.all())
         )
         self.assertTemplateUsed(res, "user/user_list.html")
@@ -54,7 +54,7 @@ class PrivateUserViewTest(TestCase):
 
         self.assertEqual(res.status_code, 200)
         self.assertIn("search_form", res.context)
-        self.assertEqual(list(res.context["user_list"]), [self.user_2])
+        self.assertEqual(list(res.context.get("user_list")), [self.user_2])
 
     def test_user_create_get_success_url(self):
         data = {

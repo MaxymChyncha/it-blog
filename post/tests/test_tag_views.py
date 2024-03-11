@@ -47,7 +47,7 @@ class PrivateTagViewTest(TestCase):
 
         self.assertEqual(res.status_code, 200)
         self.assertEqual(
-            list(res.context["tag_list"]),
+            list(res.context.get("tag_list")),
             list(Tag.objects.all())
         )
         self.assertTemplateUsed(res, "post/tag_list.html")
@@ -58,7 +58,7 @@ class PrivateTagViewTest(TestCase):
 
         self.assertEqual(res.status_code, 200)
         self.assertIn("search_form", res.context)
-        self.assertEqual(list(res.context["tag_list"]), [self.tag_2])
+        self.assertEqual(list(res.context.get("tag_list")), [self.tag_2])
 
     def test_tag_create_get_success_url(self):
         data = {"name": "New tag"}
