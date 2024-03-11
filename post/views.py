@@ -28,15 +28,15 @@ class PostListView(LoginRequiredMixin, generic.ListView):
     def get_queryset(self) -> QuerySet:
         queryset = super(PostListView, self).get_queryset()
         queryset = (
-            queryset
-            .select_related("author")
-            .prefetch_related("comments")
+            queryset.select_related("author").prefetch_related("comments")
         )
         form = PostSearchForm(self.request.GET)
+
         if form.is_valid():
             return queryset.filter(
                 title__icontains=form.cleaned_data["title"]
             )
+
         return queryset
 
     def get_context_data(self, **kwargs) -> dict:
