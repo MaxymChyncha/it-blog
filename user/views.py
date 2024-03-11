@@ -14,11 +14,14 @@ class UserListView(LoginRequiredMixin, generic.ListView):
 
     def get_queryset(self) -> QuerySet:
         queryset = super(UserListView, self).get_queryset()
+        queryset = (
+            queryset.prefetch_related("comments").prefetch_related("posts")
+        )
         form = UserSearchForm(self.request.GET)
 
         if form.is_valid():
             return queryset.filter(
-                username__icontains=form.cleaned_data["username"]
+                username__icontains=form.cleaned_data.get("username")
             )
 
         return queryset
