@@ -3,11 +3,7 @@
 {% block content %}
   <div class="sidebar-nav">
     <h1>Enter The Matrix</h1>
-
-    {% if form.errors %}
-      <p class="matrix-error">Your username and password didn't match. Please try again.</p>
-    {% endif %}
-
+  
     {% if next %}
       <p class="matrix-info">Please enter to see this page.</p>
     {% endif %}
