@@ -11,6 +11,7 @@ from post.models import Comment, Post
 
 
 class CommentCreateFormTest(TestCase):
+
     def test_valid_form(self):
         form_data = {"content": "Valid content"}
         form = CommentCreateForm(data=form_data)
@@ -26,6 +27,7 @@ class CommentCreateFormTest(TestCase):
 
 
 class CommentUpdateFormTest(TestCase):
+
     def setUp(self):
         self.user = get_user_model().objects.create_user(
             username="test",
@@ -63,6 +65,7 @@ class CommentUpdateFormTest(TestCase):
 
 
 class PostSearchFormTest(TestCase):
+
     def setUp(self):
         self.form = PostSearchForm()
 
@@ -77,6 +80,7 @@ class PostSearchFormTest(TestCase):
 
 
 class TagSearchFormTest(TestCase):
+
     def setUp(self):
         self.form = TagSearchForm()
 

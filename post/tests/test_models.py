@@ -76,6 +76,7 @@ class CommentModelTest(TestCase):
 
 
 class TagModelTest(TestCase):
+    
     def setUp(self):
         self.tag = Tag.objects.create(name="test")
 

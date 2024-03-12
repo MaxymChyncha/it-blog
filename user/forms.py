@@ -4,6 +4,7 @@ from django import forms
 
 
 class UserCreateForm(UserCreationForm):
+
     class Meta(UserCreationForm.Meta):
         model = get_user_model()
         fields = UserCreationForm.Meta.fields + (
@@ -13,6 +14,7 @@ class UserCreateForm(UserCreationForm):
 
 
 class UserUpdateForm(forms.ModelForm):
+
     class Meta:
         model = get_user_model()
         fields = ("username", "first_name", "last_name")
