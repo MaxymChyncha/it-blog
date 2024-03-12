@@ -4,6 +4,7 @@ from post.models import Comment, Tag, Post
 
 
 class CommentCreateForm(forms.ModelForm):
+
     class Meta:
         model = Comment
         fields = ("content",)
@@ -11,6 +12,7 @@ class CommentCreateForm(forms.ModelForm):
 
 
 class CommentUpdateForm(forms.ModelForm):
+
     class Meta:
         model = Comment
         fields = ("content",)

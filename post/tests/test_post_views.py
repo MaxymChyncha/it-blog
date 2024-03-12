@@ -28,6 +28,7 @@ class PublicPostViewTest(TestCase):
 
 
 class PrivatePostViewTest(TestCase):
+
     def setUp(self):
         self.user = get_user_model().objects.create_user(
             username="test",

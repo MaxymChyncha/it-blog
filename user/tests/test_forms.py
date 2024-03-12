@@ -5,6 +5,7 @@ from user.forms import UserCreateForm, UserUpdateForm
 
 
 class UserCreateFormTest(TestCase):
+
     def test_valid_form(self):
         form_data = {
             "username": "new_user",
@@ -32,6 +33,7 @@ class UserCreateFormTest(TestCase):
 
 
 class UserUpdateFormTest(TestCase):
+
     def setUp(self):
         self.user = get_user_model().objects.create_user(
             username="test",
