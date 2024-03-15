@@ -28,7 +28,13 @@
     </p>
   </div>
   <div style="margin-left: 20px;  font-size: 7em;">
-    <a style="text-decoration: none" href="{% url 'user:login' %}" class="rabbit-link">🐇</a>
+    <a style="text-decoration: none"
+       href="{% if user.is_authenticated %}
+    	          {% url 'post:post-list' %}
+    	        {% else %}
+    	          {% url 'user:login' %}
+              {% endif %}"
+       class="rabbit-link">🐇</a>
   </div>
 </div>
 <canvas id="c"></canvas>
