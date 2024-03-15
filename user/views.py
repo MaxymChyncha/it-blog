@@ -10,7 +10,7 @@ from user.forms import UserCreateForm, UserUpdateForm, UserSearchForm
 
 class UserListView(LoginRequiredMixin, generic.ListView):
     model = get_user_model()
-    paginate_by = 5
+    paginate_by = 8
 
     def get_queryset(self) -> QuerySet:
         queryset = super(UserListView, self).get_queryset()
@@ -49,7 +49,7 @@ class UserDetailView(LoginRequiredMixin, generic.DetailView):
     def get_context_data(self, **kwargs) -> dict:
         context = super().get_context_data(**kwargs)
         posts = self.object.posts.all()
-        context = paginate_context(self.request, posts, context, 5)
+        context = paginate_context(self.request, posts, context, 8)
         return context
 
 
