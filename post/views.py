@@ -22,7 +22,7 @@ def index(request: HttpRequest) -> HttpResponse:
 
 class PostListView(LoginRequiredMixin, generic.ListView):
     model = Post
-    paginate_by = 5
+    paginate_by = 8
     template_name = "post/post_list.html"
 
     def get_queryset(self) -> QuerySet:
@@ -75,7 +75,7 @@ class PostDetailView(LoginRequiredMixin, FormMixin, generic.DetailView):
     def get_context_data(self, **kwargs) -> dict:
         context = super(PostDetailView, self).get_context_data(**kwargs)
         comments = self.object.comments.all()
-        context = paginate_context(self.request, comments, context, 5)
+        context = paginate_context(self.request, comments, context, 8)
 
         context["form"] = CommentCreateForm(
             initial={"post": self.object, "author": self.request.user}
@@ -117,7 +117,7 @@ class PostDeleteView(LoginRequiredMixin, generic.DeleteView):
 
 class TagListView(LoginRequiredMixin, generic.ListView):
     model = Tag
-    paginate_by = 5
+    paginate_by = 8
 
     def get_queryset(self) -> QuerySet:
         queryset = super(TagListView, self).get_queryset()
@@ -153,7 +153,7 @@ class TagDetailView(LoginRequiredMixin, generic.DetailView):
     def get_context_data(self, **kwargs) -> dict:
         context = super(TagDetailView, self).get_context_data(**kwargs)
         posts = self.object.posts.prefetch_related("tag")
-        context = paginate_context(self.request, posts, context, 5)
+        context = paginate_context(self.request, posts, context, 8)
         return context
 
 
